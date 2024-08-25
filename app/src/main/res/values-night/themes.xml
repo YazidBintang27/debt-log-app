@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.DebtNote" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/primary500</item>
+        <item name="colorOnPrimary">@color/neutral</item>
+        <item name="colorOnBackground">@color/neutralsoft</item>
+    </style>
+</resources>
