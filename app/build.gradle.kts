@@ -1,6 +1,8 @@
 plugins {
    alias(libs.plugins.android.application)
    alias(libs.plugins.jetbrains.kotlin.android)
+   id("com.google.devtools.ksp")
+   id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -49,4 +51,20 @@ dependencies {
    testImplementation(libs.junit)
    androidTestImplementation(libs.androidx.junit)
    androidTestImplementation(libs.androidx.espresso.core)
+
+   //Room Database
+   implementation(libs.androidx.room.runtime)
+   ksp(libs.androidx.room.compiler)
+   implementation(libs.androidx.room.ktx)
+
+   //Dagger Hilt
+   implementation(libs.hilt.android)
+   ksp(libs.dagger.compiler) // Dagger compiler
+   ksp(libs.hilt.compiler)   // Hilt compiler
+
+   //ViewModel
+   implementation(libs.androidx.activity.ktx)
+
+   implementation(libs.androidx.appcompat)
+   implementation(libs.material)
 }
