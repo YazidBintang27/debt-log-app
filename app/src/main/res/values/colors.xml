@@ -6,4 +6,7 @@
     <color name="primary400">#70AAFF</color>
     <color name="neutral">#262626</color>
     <color name="neutralsoft">#535353</color>
+    <color name="grey">#DBDBDB</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="red">#ff2e4d</color>
 </resources>

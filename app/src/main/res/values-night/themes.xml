@@ -4,6 +4,6 @@
         <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/primary500</item>
         <item name="colorOnPrimary">@color/neutral</item>
-        <item name="colorOnBackground">@color/neutralsoft</item>
+        <item name="colorOnBackground">@color/white</item>
     </style>
 </resources>

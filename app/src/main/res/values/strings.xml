@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Debt Note</string>
+    <string name="debt_name">%1$s</string>
+    <string name="debt_amount">Rp%1$s</string>
+    <string name="borrow_date">Tanggal Peminjaman: %1$s</string>
+    <string name="due_date">Jatuh Tempo: %1$s</string>
+    <string name="payment_status_paid">Sudah Lunas</string>
+    <string name="payment_status_unpaid">Belum Lunas</string>
 </resources>
