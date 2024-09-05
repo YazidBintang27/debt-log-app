@@ -3,6 +3,7 @@ package com.latihan.debtnote
 import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -21,6 +22,7 @@ import com.latihan.debtnote.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -39,16 +41,12 @@ class MainActivity : AppCompatActivity() {
          v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
          insets
       }
-      ViewCompat.setOnApplyWindowInsetsListener(binding.myToolbar) { v, insets ->
-         val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-         v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-         insets
-      }
       setupActionBar()
       setupAdapter()
       getAllData()
       addData()
       deleteData()
+      searchData()
    }
 
    private fun setupActionBar() {
@@ -97,6 +95,24 @@ class MainActivity : AppCompatActivity() {
                   dialog.dismiss()
                }
             builder.create().show()
+         }
+      })
+   }
+
+   private fun searchData() {
+      binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener,
+         OnQueryTextListener {
+         override fun onQueryTextSubmit(query: String?): Boolean {
+            return false
+         }
+
+         override fun onQueryTextChange(newText: String?): Boolean {
+            val listData = homeViewModel.allData.value
+            val filteredData = listData.filter {
+               it.name.contains(newText ?: "", ignoreCase = true)
+            }
+            debtCardAdapter.setData(filteredData)
+            return true
          }
       })
    }
